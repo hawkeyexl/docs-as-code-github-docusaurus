@@ -7,7 +7,7 @@ This guide is an example of how to use [Docs as Code](https://www.writethedocs.o
 You need the following to complete the guide:
 
 - A GitHub account: You can sign up for a free account at [GitHub](https://github.com).
-- Git: You can download and install Git from the [Git website](https://git-scm.com/downloads).
+- Git: You can get Git from the [Git website](https://git-scm.com/downloads) or as part of [GitHub Desktop](https://desktop.github.com/download).
 - Node.js: You can download and install Node.js from the [Node.js website](https://nodejs.org/).
 - A text editor: You can use any text editor to write your documentation. Some popular options include [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -50,41 +50,65 @@ Docusaurus is an open-source documentation tool for creating documentation websi
 Follow these steps to set up Docusaurus:
 
 1. **Install Docusaurus**:
-    - Run the following command in your terminal or command prompt to install Docusaurus globally:
-      - `npm install -g docusaurus-init`
-    - Run the following command to create a new Docusaurus project:
-      - `docusaurus-init`
-    - Follow the prompts to set up your project.
-    - Navigate to the project directory:
-      - `cd [project-name]`
-      - Replace `[project-name]` with the name of your project.
-      - Run the following command to start the development server:
-        - `npm start`
-        - Open your browser and go to `http://localhost:3000` to view your Docusaurus site.
-        - You can now start writing your documentation using Markdown.
-        - For more information on how to use Docusaurus, refer to the [official documentation](https://docusaurus.io/docs/en/installation).
 
-2. **Make a small change**: 
-    - Open the `docs` directory in your project.
-    - Edit the `index.md` file to make a small change.
-    - Save your changes and refresh the browser to see the updated documentation.
-    - You can continue to make changes and preview them in the browser as you write your documentation.
+    1. In your terminal, create a new Docusaurus project:
+       
+       `npx create-docusaurus@latest website classic`
+
+    1. Follow the prompts to set up your project. If in doubt, go with the defaults.
+
+    1. Navigate to the project directory:
+      
+       `cd website`
+      
+    1. Start the local development server:
+       
+       `npm start`
+
+       This opens your browser to your Docusaurus site at [`http://localhost:3000`](http://localhost:3000).
+       
+    1. In the upper navigation, click **Tutorial**. You can follow the local tutorial (which is great) on when you have the time.
+
+       For more information on how to use Docusaurus, refer to the [official documentation](https://docusaurus.io/docs).
+
+2. **Make a small change**:
+
+    1. Open _website/docs/index.md_ in your editor.
+    1. Make a small change and save.
+
+       The page dynamically updates in the browser. You can continue to make changes and preview them in the browser as you write your documentation.
+
+    1. When you're done making edits, stop the development server by clicking into your terminal and pressing Ctrl+C.
 
 3. **Build your site**:
-    - Once you are happy with your documentation, you can build your site for deployment.
-    - Run the following command in your terminal or command prompt:
-      - `npm run build`
-    - This will generate a `build` directory with the static files for your site.
-    - You can deploy these files to a web server or use GitHub Pages to host your documentation.
+
+    Once you are happy with your documentation, you can build your site for deployment.
+    
+    1. Generate a static build of your site:
+    
+       `npm run build`
+
+       This will generate a `build` directory with the static files for your site.
+
+       You can deploy these files to a web server or use GitHub Pages to host your documentation.
 
 4. **Add and commit your changes**:
-   - In your terminal or command prompt, navigate to your project directory.
-   - Run the following commands to add and commit your changes:
-     - `git add .`
-     - `git commit -m "Add initial documentation"`
-   - Run the following command in your terminal or command prompt to push your changes to GitHub:
-     - `git push origin main`
-   - Your changes should now be pushed to your GitHub repository.
+
+    Committing and pushing your changes is what saves them to GitHub.
+
+    1. In your terminal, add your new files to Git to start tracking changes in those files:
+
+       `git add .`
+    
+    1. Commit the changes with a message describing what the changes include:
+
+       `git commit -m "Add initial documentation"`
+
+    1. Push the changes to your repository to save them to GitHub:
+
+       `git push`
+
+       You should now see your changes in your GitHub repository.
 
 ## Set up GitHub Pages
 
@@ -93,8 +117,10 @@ GitHub Pages is a feature of GitHub that allows you to host static websites dire
 Follow these steps to set up GitHub Pages:
 
 1. **Set up GitHub Pages**:
-    - Go to your repository on GitHub.
-    - Click on the "Settings" tab.
+    1. In your browser, go to your repository on GitHub.
+    1. Click on the **Settings** tab.
+    1. In the left navigation, click **Pages**.
+    1. Under **Branch**, choose the `main` branch.
     - Scroll down to the "GitHub Pages" section.
     - Under "Source", select the branch you want to use for GitHub Pages (e.g., `main` or `master`).
     - Click "Save".
