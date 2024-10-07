@@ -170,9 +170,10 @@ Once you're happy with your docs and have things configured, you can build and d
 
        This will generate a `docs` directory at the root of your repo with the static files for your site.
 
-    1. Add, commit, and push files to GitHub:
+    1. Move to the repository parent directory, add, commit, and push files to GitHub:
 
        ```bash
+       cd ..
        git add .
        git commit -m "Docs build"
        git push
@@ -181,3 +182,5 @@ Once you're happy with your docs and have things configured, you can build and d
 1. **Publish your docs**:
 
     Surprise, this part is already done for you! After pushing updates to the _/docs_ directory, GitHub automatically builds and publishes your docs to `https://<github_username>.github.io/<repository_name>`. For example, [https://hawkeyexl.github.io/dac-test/](https://hawkeyexl.github.io/dac-test/).
+
+Any time you want to update your docs, make whatever changes you like, rebuild your site, and push the files to your repository. It will be automatically published for you.
