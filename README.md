@@ -7,7 +7,7 @@ This guide is an example of how to use [Docs as Code](https://www.writethedocs.o
 You need the following to complete the guide:
 
 - A GitHub account: You can sign up for a free account at [GitHub](https://github.com).
-- Git: You can get Git from the [Git website](https://git-scm.com/downloads) or as part of [GitHub Desktop](https://desktop.github.com/download).
+- Git: You can get Git as part of [GitHub Desktop](https://desktop.github.com/download) or from the [Git website](https://git-scm.com/downloads).
 - Node.js: You can download and install Node.js from the [Node.js website](https://nodejs.org/).
 - A text editor: You can use any text editor to write your documentation. Some popular options include [Visual Studio Code](https://code.visualstudio.com/).
 
@@ -53,17 +53,23 @@ Follow these steps to set up Docusaurus:
 
     1. In your terminal, create a new Docusaurus project:
        
-       `npx create-docusaurus@latest website classic`
+       ```bash
+       npx create-docusaurus@latest website classic
+       ```
 
     1. Follow the prompts to set up your project. If in doubt, go with the defaults.
 
     1. Navigate to the project directory:
       
-       `cd website`
+       ```bash
+       cd website
+       ```
       
     1. Start the local development server:
        
-       `npm start`
+       ```bash
+       npm start
+       ```
 
        This opens your browser to your Docusaurus site at [`http://localhost:3000`](http://localhost:3000).
        
@@ -80,33 +86,27 @@ Follow these steps to set up Docusaurus:
 
     1. When you're done making edits, stop the development server by clicking into your terminal and pressing Ctrl+C.
 
-3. **Build your site**:
-
-    Once you are happy with your documentation, you can build your site for deployment.
-    
-    1. Generate a static build of your site:
-    
-       `npm run build`
-
-       This will generate a `build` directory with the static files for your site.
-
-       You can deploy these files to a web server or use GitHub Pages to host your documentation.
-
-4. **Add and commit your changes**:
+3. **Add and commit your changes**:
 
     Committing and pushing your changes is what saves them to GitHub.
 
     1. In your terminal, add your new files to Git to start tracking changes in those files:
 
-       `git add .`
+       ```bash
+       git add .
+       ```
     
     1. Commit the changes with a message describing what the changes include:
 
-       `git commit -m "Add initial documentation"`
+       ```bash
+       git commit -m "Add initial documentation"
+       ```
 
     1. Push the changes to your repository to save them to GitHub:
 
-       `git push`
+       ```bash
+       git push
+       ```
 
        You should now see your changes in your GitHub repository.
 
@@ -116,16 +116,68 @@ GitHub Pages is a feature of GitHub that allows you to host static websites dire
 
 Follow these steps to set up GitHub Pages:
 
+1. **Update Docusaurus config**:
+    1. In your editor, open _website/docusaurus.config.js_.
+    1. In the `const config` object, make the following updates:
+      
+       - `url`: Update to 'https://<github_username>.github.io'. If your username is 'hawkeyexl', it would be 'https://hawkeyexl.github.io'.
+       - `baseUrl`: Update to '/<repository_name>/'. If your repo is 'dac-test', this should be '/dac-test/'.
+       - `organizationName`: Update to your GitHub username.
+       - `projectName`: Update to your repository name.
+       - `deploymentBranch`: *Add* this field and set it to 'main'.
+       - `trailingSlash`: *Add* this field and set it to `false`.
+
+       Your config should have items that look something like this:
+
+       ```javascript
+       url: 'https://hawkeyexl.github.io/',
+       baseUrl: '/dac-test/',
+       organizationName: 'hawkeyexl',
+       projectName: 'dac-test',
+       deploymentBranch: 'main',
+       trailingSlash: false,
+       ```
+
+       You can see more config options and details in the [Docusaurus deployment docs](https://docusaurus.io/docs/deployment).
+
+    1. Save the config file.
+    1. Commit and push to GitHub:
+
+       ```bash
+       git commit -m "Update config for GitHub Pages"
+       git push
+       ```
+
 1. **Set up GitHub Pages**:
     1. In your browser, go to your repository on GitHub.
     1. Click on the **Settings** tab.
     1. In the left navigation, click **Pages**.
-    1. Under **Branch**, choose the `main` branch.
-    - Scroll down to the "GitHub Pages" section.
-    - Under "Source", select the branch you want to use for GitHub Pages (e.g., `main` or `master`).
-    - Click "Save".
-    - Your site should now be published at `https://[username].github.io/[repository-name]`.
-    - Replace `[username]` with your GitHub username and `[repository-name]` with the name of your repository.
+    1. Under **Branch**, choose **main** branch.
+    1. In folder drop-down, choose **/docs**
+    1. Click **Save**.
 
-7. **Push your changes**:
-    - You can view your published documentation at `https://[username].github.io/[repository-name]`.
+## Publish changes
+
+Once you're happy with your docs and have things configured, you can build and deploy your docs.
+
+1. **Build your site**:
+
+    1. Generate a static build of your site:
+    
+       ```bash
+       npm run build -- --out-dir ../docs
+       ```
+
+       This will generate a `docs` directory at the root of your repo with the static files for your site.
+
+    1. Add, commit, and push files to GitHub:
+
+       ```bash
+       git add .
+       git commit -m "Docs build"
+       git push
+       ```
+
+1. **Publish your docs**:
+
+    Surprise, this part is already done for you! After pushing updates to the _/docs_ directory, GitHub automatically builds and publishes your docs to `https://<github_username>.github.io/<repository_name>`. For example, [https://hawkeyexl.github.io/dac-test/](https://hawkeyexl.github.io/dac-test/).
