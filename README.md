@@ -7,7 +7,8 @@ This guide is an example of how to use [Docs as Code](https://www.writethedocs.o
 You need the following to complete the guide:
 
 - A GitHub account: You can sign up for a free account at [GitHub](https://github.com).
-- Node.js and `npm`: You can download and install Node.js from the [Node.js website](https://nodejs.org/).
+- Git: You can download and install Git from the [Git website](https://git-scm.com/downloads).
+- Node.js: You can download and install Node.js from the [Node.js website](https://nodejs.org/).
 - A text editor: You can use any text editor to write your documentation. Some popular options include [Visual Studio Code](https://code.visualstudio.com/).
 
 ## Set up a new repository on GitHub
@@ -19,23 +20,28 @@ Follow these steps to set up a new repository on GitHub:
 1. **Sign in to GitHub**: Go to [GitHub](https://github.com) and sign in to your account.
 
 2. **Create a new repository**:
-   - Click the '+' icon in the top-right corner of the page.
-   - Select "New repository" from the dropdown menu.
+   1. Click the '+' icon in the top-right corner of the page.
+   1. Choose **New repository** from the dropdown menu.
 
 3. **Configure the repository**:
-   - Enter a name for your repository.
-   - (Optional) Add a description of your project.
-   - Choose whether the repository should be public or private.
-   - (Optional) Select "Initialize this repository with a README" if you want to start with a README file.
-   - (Optional) Choose a license if you want to add one to your project.
-   - Click "Create repository".
+   1. For **Repository name**, enter a name. Note this down. We'll use `dac-test`.
+   1. Keep the repository **Public** so it will work with GitHub Pages for free. Note that all changes to your content will be public.
+   1. Select **Add a README file**. This is where you can add information about how to make updates to your docs.
+   1. For **Add .gitignore**, choose **Node**. Docusaurus is Node-based, and this will keep GitHub from storing unnecessary files.
+   1. (Optional) Choose a license if you want to add one to your project. This is what dictates how people can (or can't) use the content of your repo. We'll use an MIT license, meaning anyone can use the repo contents for any purpose.
+   1. Click **Create repository**.
 
-4. **Clone the repository** (if you didn't initialize with a README):
-   - On the repository page, click the "Code" button.
-   - Copy the HTTPS or SSH URL provided.
-   - Open your terminal or command prompt.
-   - Navigate to the directory where you want to clone the repository.
-   - Run the command: `git clone [URL you copied]`
+4. **Clone the repository**:
+   1. On the repository page, click the **Code** button.
+   1. Make sure **Local** and **HTTPS** are selected.
+   1. Next to the URL, click the copy button to copy your repository's Git URL.
+   1. On your computer, open your terminal or command prompt.
+   1. Navigate to the directory where you want to clone the repository.
+   1. Run the command: `git clone [URL you copied]`.
+      
+      The command should look something like this, but with your GitHub username and repository name:
+      
+      `git clone https://github.com/hawkeyexl/dac-test.git`
 
 ## Set up Docusaurus
 
