@@ -144,6 +144,7 @@ Follow these steps to set up GitHub Pages:
     1. Commit and push to GitHub:
 
        ```bash
+       git add .
        git commit -m "Update config for GitHub Pages"
        git push
        ```
