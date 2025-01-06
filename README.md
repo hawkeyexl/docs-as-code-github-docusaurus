@@ -20,10 +20,12 @@ Follow these steps to set up a new repository on GitHub:
 1. **Sign in to GitHub**: Go to [GitHub](https://github.com) and sign in to your account.
 
 2. **Create a new repository**:
+
    1. Click the '+' icon in the top-right corner of the page.
    1. Choose **New repository** from the dropdown menu.
 
 3. **Configure the repository**:
+
    1. For **Repository name**, enter a name. Note this down. We'll use `dac-test`.
    1. Keep the repository **Public** so it will work with GitHub Pages for free. Note that all changes to your content will be public.
    1. Select **Add a README file**. This is where you can add information about how to make updates to your docs.
@@ -32,15 +34,16 @@ Follow these steps to set up a new repository on GitHub:
    1. Click **Create repository**.
 
 4. **Clone the repository**:
+
    1. On the repository page, click the **Code** button.
    1. Make sure **Local** and **HTTPS** are selected.
    1. Next to the URL, click the copy button to copy your repository's Git URL.
    1. On your computer, open your terminal or command prompt.
    1. Navigate to the directory where you want to clone the repository.
    1. Run the command: `git clone [URL you copied]`.
-      
+
       The command should look something like this, but with your GitHub username and repository name:
-      
+
       `git clone https://github.com/hawkeyexl/dac-test.git`
 
 ## Set up Docusaurus
@@ -51,64 +54,64 @@ Follow these steps to set up Docusaurus:
 
 1. **Install Docusaurus**:
 
-    1. In your terminal, create a new Docusaurus project:
-       
-       ```bash
-       npx create-docusaurus@latest website classic
-       ```
+   1. In your terminal, create a new Docusaurus project:
 
-    1. Follow the prompts to set up your project. If in doubt, go with the defaults.
+      ```bash
+      npx create-docusaurus@latest website classic
+      ```
 
-    1. Navigate to the project directory:
-      
-       ```bash
-       cd website
-       ```
-      
-    1. Start the local development server:
-       
-       ```bash
-       npm start
-       ```
+   1. Follow the prompts to set up your project. If in doubt, go with the defaults.
 
-       This opens your browser to your Docusaurus site at [`http://localhost:3000`](http://localhost:3000).
-       
-    1. In the upper navigation, click **Tutorial**. You can follow the local tutorial (which is great) on when you have the time.
+   1. Navigate to the project directory:
 
-       For more information on how to use Docusaurus, refer to the [official documentation](https://docusaurus.io/docs).
+      ```bash
+      cd website
+      ```
+
+   1. Start the local development server:
+
+      ```bash
+      npm start
+      ```
+
+      This opens your browser to your Docusaurus site at [`http://localhost:3000`](http://localhost:3000).
+
+   1. In the upper navigation, click **Tutorial**. You can follow the local tutorial (which is great) on when you have the time.
+
+      For more information on how to use Docusaurus, refer to the [official documentation](https://docusaurus.io/docs).
 
 2. **Make a small change**:
 
-    1. Open _website/docs/index.md_ in your editor.
-    1. Make a small change and save.
+   1. Open _website/docs/index.md_ in your editor.
+   1. Make a small change and save.
 
-       The page dynamically updates in the browser. You can continue to make changes and preview them in the browser as you write your documentation.
+      The page dynamically updates in the browser. You can continue to make changes and preview them in the browser as you write your documentation.
 
-    1. When you're done making edits, stop the development server by clicking into your terminal and pressing Ctrl+C.
+   1. When you're done making edits, stop the development server by clicking into your terminal and pressing Ctrl+C.
 
 3. **Add and commit your changes**:
 
-    Committing and pushing your changes is what saves them to GitHub.
+   Committing and pushing your changes is what saves them to GitHub.
 
-    1. In your terminal, add your new files to Git to start tracking changes in those files:
+   1. In your terminal, add your new files to Git to start tracking changes in those files:
 
-       ```bash
-       git add .
-       ```
-    
-    1. Commit the changes with a message describing what the changes include:
+      ```bash
+      git add .
+      ```
 
-       ```bash
-       git commit -m "Add initial documentation"
-       ```
+   1. Commit the changes with a message describing what the changes include:
 
-    1. Push the changes to your repository to save them to GitHub:
+      ```bash
+      git commit -m "Add initial documentation"
+      ```
 
-       ```bash
-       git push
-       ```
+   1. Push the changes to your repository to save them to GitHub:
 
-       You should now see your changes in your GitHub repository.
+      ```bash
+      git push
+      ```
+
+      You should now see your changes in your GitHub repository.
 
 ## Set up GitHub Pages
 
@@ -117,45 +120,46 @@ GitHub Pages is a feature of GitHub that allows you to host static websites dire
 Follow these steps to set up GitHub Pages:
 
 1. **Update Docusaurus config**:
-    1. In your editor, open _website/docusaurus.config.js_.
-    1. In the `const config` object, make the following updates:
-      
-       - `url`: Update to 'https://<github_username>.github.io'. If your username is 'hawkeyexl', it would be 'https://hawkeyexl.github.io'.
-       - `baseUrl`: Update to '/<repository_name>/'. If your repo is 'dac-test', this should be '/dac-test/'.
-       - `organizationName`: Update to your GitHub username.
-       - `projectName`: Update to your repository name.
-       - `deploymentBranch`: *Add* this field and set it to 'main'.
-       - `trailingSlash`: *Add* this field and set it to `false`.
 
-       Your config should have items that look something like this:
+   1. In your editor, open _website/docusaurus.config.js_.
+   1. In the `const config` object, make the following updates:
 
-       ```javascript
-       url: 'https://hawkeyexl.github.io/',
-       baseUrl: '/dac-test/',
-       organizationName: 'hawkeyexl',
-       projectName: 'dac-test',
-       deploymentBranch: 'main',
-       trailingSlash: false,
-       ```
+      - `url`: Update to 'https://<github_username>.github.io'. If your username is 'hawkeyexl', it would be 'https://hawkeyexl.github.io'.
+      - `baseUrl`: Update to '/<repository_name>/'. If your repo is 'dac-test', this should be '/dac-test/'.
+      - `organizationName`: Update to your GitHub username.
+      - `projectName`: Update to your repository name.
+      - `deploymentBranch`: _Add_ this field and set it to 'main'.
+      - `trailingSlash`: _Add_ this field and set it to `false`.
 
-       You can see more config options and details in the [Docusaurus deployment docs](https://docusaurus.io/docs/deployment).
+      Your config should have items that look something like this:
 
-    1. Save the config file.
-    1. Commit and push to GitHub:
+      ```javascript
+      url: 'https://hawkeyexl.github.io/',
+      baseUrl: '/dac-test/',
+      organizationName: 'hawkeyexl',
+      projectName: 'dac-test',
+      deploymentBranch: 'main',
+      trailingSlash: false,
+      ```
 
-       ```bash
-       git add .
-       git commit -m "Update config for GitHub Pages"
-       git push
-       ```
+      You can see more config options and details in the [Docusaurus deployment docs](https://docusaurus.io/docs/deployment).
+
+   1. Save the config file.
+   1. Commit and push to GitHub:
+
+      ```bash
+      git add .
+      git commit -m "Update config for GitHub Pages"
+      git push
+      ```
 
 1. **Set up GitHub Pages**:
-    1. In your browser, go to your repository on GitHub.
-    1. Click on the **Settings** tab.
-    1. In the left navigation, click **Pages**.
-    1. Under **Branch**, choose **main** branch.
-    1. In folder drop-down, choose **/docs**
-    1. Click **Save**.
+   1. In your browser, go to your repository on GitHub.
+   1. Click on the **Settings** tab.
+   1. In the left navigation, click **Pages**.
+   1. Under **Branch**, choose **main** branch.
+   1. In folder drop-down, choose **/docs**
+   1. Click **Save**.
 
 ## Publish changes
 
@@ -163,25 +167,95 @@ Once you're happy with your docs and have things configured, you can build and d
 
 1. **Build your site**:
 
-    1. Generate a static build of your site:
-    
-       ```bash
-       npm run build -- --out-dir ../docs
-       ```
+   1. Generate a static build of your site:
 
-       This will generate a `docs` directory at the root of your repo with the static files for your site.
+      ```bash
+      npm run build -- --out-dir ../docs
+      ```
 
-    1. Move to the repository parent directory, add, commit, and push files to GitHub:
+      This will generate a `docs` directory at the root of your repo with the static files for your site.
 
-       ```bash
-       cd ..
-       git add .
-       git commit -m "Docs build"
-       git push
-       ```
+   1. Move to the repository parent directory, add, commit, and push files to GitHub:
+
+      ```bash
+      cd ..
+      git add .
+      git commit -m "Docs build"
+      git push
+      ```
 
 1. **Publish your docs**:
 
-    Surprise, this part is already done for you! After pushing updates to the _/docs_ directory, GitHub automatically builds and publishes your docs to `https://<github_username>.github.io/<repository_name>`. For example, [https://hawkeyexl.github.io/dac-test/](https://hawkeyexl.github.io/dac-test/).
+   Surprise, this part is already done for you! After pushing updates to the _/docs_ directory, GitHub automatically builds and publishes your docs to `https://<github_username>.github.io/<repository_name>`. For example, [https://hawkeyexl.github.io/dac-test/](https://hawkeyexl.github.io/dac-test/).
 
 Any time you want to update your docs, make whatever changes you like, rebuild your site, and push the files to your repository. It will be automatically published for you.
+
+## Support multiple versions of docs
+
+When you need to service docs for multiple versions of a product concurrently, you can use Docusaurus's versioning feature. This allows you to maintain separate versions of your documentation and provide users with a way to switch between versions.
+
+**Caution**: Versioning makes it harder for contributors to know where and how to make changes. Use versioning only when necessary.
+
+To set up versioning:
+
+1. Freeze your current docs as a specific version by creating a new version in Docusaurus:
+
+   ```bash
+   npx docusaurus docs:version 1.0.0
+   ```
+
+   This creates a new version of your docs with the version number `1.0.0` in the _versioned_docs_ directory. If you make changes to your `1.0.0` docs, the changes won't apply to any other version.
+
+   The files in the _/docs_ directory are now considered your "Next" version. You can continue to make changes to these files, but Docusaurus doesn't consider them as released until you create a new version.
+
+1. You can add a version dropdown selector to make navigation a little easier. In _docusaurus.config.js_, find `themeConfig`, and add the following object to `navbar.items`:
+
+   ```javascript
+   {
+     type: 'docsVersionDropdown',
+     position: 'right',
+     dropdownActiveClassDisabled: true,
+   },
+   ```
+
+   Your whole `navbars.items` array should look something like this:
+
+   ```javascript
+   items: [
+     {
+       type: 'docSidebar',
+       sidebarId: 'tutorialSidebar',
+       position: 'left',
+       label: 'Tutorial',
+     },
+     {
+       to: '/blog',
+       label: 'Blog',
+       position: 'left'
+     },
+     {
+       type: 'docsVersionDropdown',
+       position: 'right',
+       dropdownActiveClassDisabled: true,
+     },
+     {
+       href: 'https://github.com/facebook/docusaurus',
+       label: 'GitHub',
+       position: 'right',
+     },
+   ],
+   ```
+
+   This adds a dropdown to the right side of the navbar that lets users switch between versions.
+
+1. Start your development server and navigate to your site.
+
+   ```bash
+   npm start
+   ```
+
+   You should see a version dropdown in the navbar that lets you switch between versions. If you navigate to the "Next" version, you'll see a version notice and any changes you've made to the `/docs` directory. If you navigate to the `1.0.0` version, you'll see the docs as they were when you created the version.
+
+1. When you're satisfied with your changes, commit them to publish your site. The version dropdown will be available on your published site.
+
+For comprehensive versioning options, see Docusaurus's [Versioning](https://docusaurus.io/docs/versioning) docs.
