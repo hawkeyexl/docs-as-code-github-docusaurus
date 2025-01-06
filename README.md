@@ -259,3 +259,56 @@ To set up versioning:
 1. When you're satisfied with your changes, commit them to publish your site. The version dropdown will be available on your published site.
 
 For comprehensive versioning options, see Docusaurus's [Versioning](https://docusaurus.io/docs/versioning) docs.
+
+## Internationalization
+
+Docusaurus also supports internationalization (i18n) to provide documentation in multiple languages. This feature allows you to maintain separate versions of your documentation in different languages and provide users with a way to switch between languages.
+
+To set up internationalization:
+
+1. In _docusaurus.config.js_, find `i18n`, and add a language key to the `locales` array. Here, we'll add 'fr':
+
+   ```javascript
+   i18n: {
+     defaultLocale: 'en',
+     locales: ['en', 'fr'],
+   },
+   ```
+
+   This sets up your site to support English (`en`) and French (`fr`) languages. You can add more languages as needed.
+
+1. To add a dropdown locale selector to the navbar, find `themeConfig`, and add the following object to the `navbar.items` array:
+
+   ```javascript
+   {
+     type: 'localeDropdown',
+     position: 'right',
+   },
+   ```
+
+1. Create a new directory for your French docs and copy the existing English docs into it:
+
+   ```bash
+   mkdir -p i18n/fr/docusaurus-plugin-content-docs/current
+   cp -r docs/** i18n/fr/docusaurus-plugin-content-docs/current
+   ```
+
+   Docusaurus automatically detects the `i18n` directory and uses it to generate the translated versions of your docs. Docusaurus doesn't care how you localize your documentation, so you can use any method you like.
+
+   If a file doesn't exist in the French directory, Docusaurus falls back to the English version. If a file exists in the French directory, Docusaurus uses that version.
+
+   If you also version your docs, localize the versioned docs by copying the versioned docs into the French directory. For example, the French 1.0.0 docs would be in `i18n/fr/docusaurus-plugin-content-docs/version-1.0.0`.
+
+1. Start your development server with the French locale and navigate to your site:
+
+   ```bash
+   npm start -- --locale fr
+   ```
+
+   **Note**: You can only specify one locale at a time when running the server locally. When you build and serve the site, Docusaurus generates the site for all locales.
+
+   You should see a locale dropdown in the navbar that lets you switch between languages. If you navigate to the French locale, you'll see the French version of your docs.
+
+1. When you're satisfied with your changes, commit them to publish your site. The locale dropdown will be available on your published site, 
+
+For comprehensive internationalization options, see Docusaurus's [Internationalization](https://docusaurus.io/docs/i18n/tutorial) docs.
